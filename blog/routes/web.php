@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/user-post', [PostController::class, 'userPost'])->name('user.post');
-    Route::get('/posts/create', [PostController::class, 'createPost'])->name('create.post');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('create.post');
     Route::post('/posts/store', [PostController::class, 'storePost'])->name('posts.store');
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');

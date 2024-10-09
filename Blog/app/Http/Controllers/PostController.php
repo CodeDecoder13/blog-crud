@@ -17,9 +17,9 @@ class PostController extends Controller
         
         return view('userpost', compact('posts'));
     }
-    public function createPost()
+    public function create()
     {
-        return view('post-management.create');
+        return view('post.create');
     }
     public function storePost(Request $request)
 {
