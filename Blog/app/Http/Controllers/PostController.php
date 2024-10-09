@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -39,10 +40,10 @@ class PostController extends Controller
     return response()->json(['message' => 'Post created successfully!']);
 }
 
-public function show(Post $post)
-{
-    return view('post-management.show', compact('post')); // Renders the 'show' view for a specific post
-}
+    public function show(Post $post)
+    {
+        return view('post-management.show', compact('post')); // Renders the 'show' view for a specific post
+    }
     public function edit()
     {
         return view('post-management.edit');

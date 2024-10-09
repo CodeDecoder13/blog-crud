@@ -6,7 +6,7 @@
 
     <!-- Button to Create New Post -->
     <div class="text-right mb-5">
-        <a href="{{ route('create.post') }}" 
+        <a href="{{ route('post.create') }}" 
            class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-500 transition duration-200">
            Create Post
         </a>
