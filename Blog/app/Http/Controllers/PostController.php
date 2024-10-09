@@ -19,7 +19,7 @@ class PostController extends Controller
     }
     public function create()
     {
-        return view('post.create');
+        return view('post-management.create');
     }
     public function storePost(Request $request)
 {
@@ -47,6 +47,38 @@ class PostController extends Controller
     public function edit()
     {
         return view('post-management.edit');
+    }
+
+    public function store(Request $request)
+    {
+        // Validation
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+    ]);
+
+    // Store the new post
+    Post::create([
+        'title' => $request->title,
+        'content' => $request->input('content'),
+        'user_id' => auth()->id(),
+    ]);
+
+    // Return a JSON response
+    return response()->json(['message' => 'Post created successfully!']);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'content' => 'required|string',
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+
+        return response()->json(['success' => true]);
     }
     
 }

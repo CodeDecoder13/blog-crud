@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Comment;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -13,8 +16,10 @@ class UserController extends Controller
 {
     public function feedFetch()
     {
+        
+        $posts = Post::with('user')->latest()->paginate(10);
 
-        return view(view: 'feed');
+        return view('feed', compact('posts'));
     }
 
     

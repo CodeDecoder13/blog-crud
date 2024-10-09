@@ -24,7 +24,7 @@
                 <div class="bg-white shadow-lg rounded-lg p-4">
                     <h4 class="font-bold text-lg mb-2">Create New Post</h4>
                     <p class="text-gray-700">Share your thoughts with the community.</p>
-                    <a href="{{ route('post.create') }}" class="mt-4 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200">Create Post</a>
+                    <a href="{{ route('posts.create') }}" class="mt-4 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200">Create Post</a>
                 </div>
 
                 <!-- Card 3 -->

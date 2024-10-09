@@ -21,14 +21,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/feed', [UserController::class, 'feedFetch'])->name('feed');
 });
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth','verified'])->group(function () {
     Route::get('/user-post', [PostController::class, 'userPost'])->name('user.post');
-    Route::get('/posts/create', [PostController::class, 'create'])->name('create.post');
+    Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/posts/store', [PostController::class, 'storePost'])->name('posts.store');
     Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+    Route::post('/posts', [PostController::class, 'store']);
+    Route::put('/posts/{id}', [PostController::class, 'update']);
 
     Route::resource('posts', PostController::class);
     Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
