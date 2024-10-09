@@ -5,9 +5,9 @@
     <h1 class="text-2xl font-bold mb-5 text-center">All Posts</h1>
 
     <!-- Button to Create New Post -->
-    <div class="text-center mb-5">
+    <div class="text-right mb-5">
         <a href="{{ route('create.post') }}" 
-           class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-500 transition duration-200">
+           class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-500 transition duration-200">
            Create Post
         </a>
     </div>
@@ -16,7 +16,7 @@
     @if($posts->isEmpty())
         <p class="text-center text-gray-600">No posts available. Be the first to create one!</p>
     @else
-        <div class="space-y-6">
+        <div class="space-y-12">
             @foreach($posts as $post)
             <div class="bg-white border border-gray-300 rounded-lg shadow-sm p-5">
                 <!-- Post Title and Author -->
@@ -35,9 +35,7 @@
                        View Full Post
                     </a>
                     <div class="flex space-x-3">
-                        <a href="{{ route('posts.edit', $post->id) }}" 
-                           class="bg-blue-600 text-white font-bold py-1 px-3 rounded hover:bg-blue-500 transition duration-200">Edit
-                        </a>
+                        
                         <form action="{{ route('posts.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this post?');">
                             @csrf
                             @method('DELETE')

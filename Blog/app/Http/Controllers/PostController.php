@@ -21,27 +21,28 @@ class PostController extends Controller
         return view('post-management.create');
     }
     public function storePost(Request $request)
-    {
-         // Validation
-         $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-        ]);
+{
+    // Validation
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'content' => 'required|string',
+    ]);
 
-        // Store the new post
-        Post::create([
-            'title' => $request->title,
-            'content' => $request->input('content'),
-            'user_id' => auth()->id(),
-            
-        ]);
-        return redirect()->route('userpost');
+    // Store the new post
+    Post::create([
+        'title' => $request->title,
+        'content' => $request->input('content'),
+        'user_id' => auth()->id(),
+    ]);
 
-    }
-    public function show() 
-    {
-        return view('post-management.show');
-    }
+    // Return a JSON response
+    return response()->json(['message' => 'Post created successfully!']);
+}
+
+public function show(Post $post)
+{
+    return view('post-management.show', compact('post')); // Renders the 'show' view for a specific post
+}
     public function edit()
     {
         return view('post-management.edit');

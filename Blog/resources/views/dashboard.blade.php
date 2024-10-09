@@ -17,21 +17,21 @@
                 <div class="bg-white shadow-lg rounded-lg p-4">
                     <h4 class="font-bold text-lg mb-2">Your Posts</h4>
                     <p class="text-gray-700">View, edit, or delete your posts.</p>
-                    <a href="{{route('user.post')}}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Manage Posts</a>
+                    <a href="{{ route('user.post') }}" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200">Manage Posts</a>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="bg-white shadow-lg rounded-lg p-4">
                     <h4 class="font-bold text-lg mb-2">Create New Post</h4>
                     <p class="text-gray-700">Share your thoughts with the community.</p>
-                    <a href="{{ route('create.post') }}" class="inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">Create Post</a>
+                    <a href="{{ route('create.post') }}" class="mt-4 inline-block bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition duration-200">Create Post</a>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="bg-white shadow-lg rounded-lg p-4">
                     <h4 class="font-bold text-lg mb-2">Profile Settings</h4>
                     <p class="text-gray-700">Update your profile information.</p>
-                    <a href="{{ route('profile.edit') }}" class="inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600">Edit Profile</a>
+                    <a href="{{ route('profile.edit') }}" class="mt-4 inline-block bg-yellow-500 text-white py-2 px-4 rounded hover:bg-yellow-600 transition duration-200">Edit Profile</a>
                 </div>
             </div>
         </div>

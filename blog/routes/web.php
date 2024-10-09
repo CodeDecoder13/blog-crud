@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CommentController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.edit');
     Route::put('/posts/{post}', [PostController::class, 'update'])->name('posts.update');
     Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
+
+    Route::resource('posts', PostController::class);
+    Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
 });
 
 require __DIR__.'/auth.php';
